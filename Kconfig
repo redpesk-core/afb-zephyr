@@ -4,8 +4,17 @@ rsource "afb-libafb/zephyr/Kconfig"
 
 config AFB_ZEPHYR
 	bool "AFB Support"
-	default n
-	select CONFIG_POSIX_API
-	select CONFIG_PTHREAD_IPC
 	help
 	  This option enables the Application Framework Binder library module
+
+config AFB_RPC_NET
+	bool "AFB RPC over TCP/IP capabilities"
+	depends on AFB_ZEPHYR
+	select NETWORKING
+	help
+		This option enable AFB Binder RPC over TCP/IP.
+		It allows communicating with a binding that is
+		only reachable on the network.
+
+rsource "configs/Kconfig.main"
+rsource "configs/Kconfig.net"

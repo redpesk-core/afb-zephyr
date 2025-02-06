@@ -1,0 +1,51 @@
+if AFB_RPC_NET
+    config NET_IPV6
+        default n
+    config NET_IPV4
+        default y
+    config NET_ARP
+        default y
+    config NET_UDP
+        default y
+    config NET_TCP
+        default y
+    config NET_DHCPV4
+        default y
+    config NET_DHCPV4_OPTION_CALLBACKS
+        default y
+    config DNS_RESOLVER
+        default y
+    config NET_IPV4_AUTO
+        default n
+
+    config NET_PKT_RX_COUNT
+        default 16
+    config NET_PKT_TX_COUNT
+        default 16
+    config NET_BUF_RX_COUNT
+        default 80
+    config NET_BUF_TX_COUNT
+        default 80
+
+    config NET_L2_ETHERNET
+        default y
+    config NET_SOCKETS
+        default y
+    config NET_SOCKETS_SERVICE_THREAD_PRIO
+        default -1
+    config NET_SOCKETS_POLL_MAX
+        default 20
+
+    config NET_MGMT
+        default y
+    config NET_MGMT_EVENT
+        default y
+
+    config NET_LOG
+        default y
+
+    config NET_HOSTNAME_ENABLE
+        default y
+    config NET_HOSTNAME
+        default "zefpesk"
+endif # AFB_RPC_NET

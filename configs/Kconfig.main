@@ -1,0 +1,36 @@
+if AFB_ZEPHYR
+    # Threading
+    config POSIX_API
+        default y
+    #config PTHREAD_IPC
+    config POSIX_THREADS
+        default y
+    config THREAD_STACK_INFO
+        default y
+    config DYNAMIC_THREAD
+        default y
+    config DYNAMIC_THREAD_POOL_SIZE
+        default 4
+    config DYNAMIC_THREAD_STACK_SIZE
+        default 2048
+
+    # ZVFS (Zephyr virtual filesystem)
+    config ZVFS_OPEN_MAX
+        default 20
+    config ZVFS
+        default y
+    config ZVFS_EVENTFD
+        default y
+    config ZVFS_EVENTFD_MAX
+        default 4
+
+    # Stacks
+    config MAIN_STACK_SIZE
+        default 2048
+    config INIT_STACKS
+        default y
+
+    # Logging
+    config LOG
+        default y
+endif # AFB_ZEPHYR
