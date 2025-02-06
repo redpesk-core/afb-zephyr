@@ -1,4 +1,4 @@
-name: afb-binder
+name: afb-zephyr
 build:
   cmake: .
   kconfig: ./Kconfig

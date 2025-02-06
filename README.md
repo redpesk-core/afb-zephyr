@@ -26,7 +26,12 @@ To use afb-binder libraries in your zephyr environment please follow the followi
 
 ```bash
 cd ~/zephyrproject/
-git clone --recurse-submodules http://git.ovh.iot/redpesk/redpesk-core/afb-zephyr.git
+git clone --recurse-submodules --remote http://git.ovh.iot/redpesk/redpesk-core/afb-zephyr.git
+
+# You may want to update your module afterward
+cd ~/zephyrproject/afb-zephyr
+git pull origin master
+git submodule update --recursive --remote
 ```
 
 - Clone your zephyr application into your zephyr project environment
@@ -76,7 +81,7 @@ west build -p always -b <your_board>
 
 ### Use AFB libraries capabilities in your zephyr application
 
-To enable `afb-zephyr` zephyr external module, add `AFB_BINDER=y` to your zephyr application prj.conf file.
+To enable `afb-zephyr` zephyr external module, add `AFB_ZEPHYR=y` to your zephyr application prj.conf file.
 
 For now, several `afb-zephyr` module capabilities needs other Zephyr configuration to be enabled to work, please see the following examples:
 
