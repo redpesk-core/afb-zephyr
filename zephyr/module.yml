@@ -1,0 +1,4 @@
+name: afb-binder
+build:
+  cmake: .
+  kconfig: ./Kconfig

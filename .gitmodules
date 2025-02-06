@@ -1,0 +1,12 @@
+[submodule "rp-lib-utils"]
+	path = rp-lib-utils
+	url = https://github.com/redpesk-core/rp-lib-utils.git
+	branch = zephyr
+[submodule "afb-binding"]
+	path = afb-binding
+	url = https://github.com/redpesk-core/afb-binding.git
+	branch = zephyr
+[submodule "afb-libafb"]
+	path = afb-libafb
+	url = https://github.com/redpesk-core/afb-libafb.git
+	branch = zephyr

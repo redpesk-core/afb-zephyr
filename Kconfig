@@ -1,0 +1,11 @@
+rsource "afb-binding/zephyr/Kconfig"
+rsource "rp-lib-utils/zephyr/Kconfig"
+rsource "afb-libafb/zephyr/Kconfig"
+
+config AFB_BINDER
+	bool "AFB Binder Support"
+	default n
+	select CONFIG_POSIX_API
+	select CONFIG_PTHREAD_IPC
+	help
+	  This option enables the AFB Binder library
