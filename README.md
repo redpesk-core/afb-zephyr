@@ -1,6 +1,7 @@
 # afb-zephyr
 
 This repository provides `afb-zephyr`, a zephyr external module providing AFB libraries.
+The module is also providing some zephyr specific sources intended to make the glue between the original libraries and their use in a zephyr application.
 
 ## Zephyr version compatibility
 
