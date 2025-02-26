@@ -81,8 +81,13 @@ west build -p always -b <your_board>
 
 ### Use AFB libraries capabilities in your zephyr application
 
-To enable `afb-zephyr` zephyr external module, add `AFB_ZEPHYR=y` to your zephyr application prj.conf file.
+To enable `afb-zephyr` zephyr external module, please use the following configs in your application prj.conf file (by prefixing them with `CONFIG_`) or enable them through menuconfig (path: `(Top) -> Modules -> afb-zephyr`).
 
-For now, several `afb-zephyr` module capabilities needs other Zephyr configuration to be enabled to work, please see the following examples:
+| CONFIG Name | Default value | Comment                              |
+| ----------- | ------------- | ------------------------------------ |
+| AFB_ZEPHYR  | n             | Enables `afb-zephyr` module          |
+| AFB_RPC_NET | n             | Enables `afb-zephyr` RPC over TCP/IP |
 
-- http://git.ovh.iot/aymeric/zephyr-binding-test
+## Examples
+
+Several examples using `afb-zephyr` module are available [here](https://github.com/redpesk-samples/afb-zephyr-samples).
