@@ -70,8 +70,58 @@ int zafb_binding_add(afb_api_t *api, const afb_binding_t *binding)
 	return rc;
 }
 
-int zafb_start()
+int zafb_start_all_api()
 {
 	return afb_apiset_start_all_services(zafb_apiset());
+}
+
+afb_api_t zafb_root_api()
+{
+	static afb_api_t root = NULL;
+	if (root == NULL) {
+		afb_api_v4_create(
+			&root,
+			zafb_apiset(), zafb_apiset(),
+			"ROOT", Afb_String_Const,
+			NULL, Afb_String_Const,
+			0,
+			NULL, NULL,
+			NULL, Afb_String_Const);
+	}
+	return root;
+}
+
+static void __start__(int signum, void *arg)
+{
+	void (*start)() = arg;
+	zafb_root_api();
+	start();
+	zafb_start_all_api();
+}
+
+int zafb_add_rpc_client(const char *uri)
+{
+	return afb_api_rpc_add_client_strong(
+			uri,
+			zafb_apiset(),
+			zafb_apiset());
+}
+
+int zafb_start(void (*start)(), int maxjobs, int maxsessions, int maxthreads)
+{
+	afb_session_init(maxsessions, 0);
+
+	/* start AFB scheduler */
+	return afb_sched_start(
+		1 /* started count of threads */,
+		maxthreads /* maximum count of threads */,
+		maxjobs /* maximum count of jobs */,
+		__start__ /* start callback */,
+		start /* argument to the callback */);
+}
+
+void zafb_exit(int code)
+{
+	afb_sched_exit(1, NULL, 0, code);
 }
 
