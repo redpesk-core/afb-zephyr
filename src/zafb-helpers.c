@@ -107,6 +107,14 @@ int zafb_add_rpc_client(const char *uri)
 			zafb_apiset());
 }
 
+int zafb_add_rpc_server(const char *uri)
+{
+	return afb_api_rpc_add_server(
+			uri,
+			zafb_apiset(),
+			zafb_apiset());
+}
+
 int zafb_start(void (*start)(), int maxjobs, int maxsessions, int maxthreads)
 {
 	afb_session_init(maxsessions, 0);

@@ -21,6 +21,9 @@ extern int zafb_binding_add(afb_api_t *api, const afb_binding_t *binding);
 /* add a RPC client of the serveur given by the URI */
 extern int zafb_add_rpc_client(const char *uri);
 
+/* add a RPC server for the URI */
+extern int zafb_add_rpc_server(const char *uri);
+
 /* start all recorded apis, can be called several times */
 extern int zafb_start_all_api();
 
