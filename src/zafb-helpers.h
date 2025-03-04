@@ -7,7 +7,7 @@
 #ifndef ZAFB_HELPERS_INCLUDED
 #define ZAFB_HELPERS_INCLUDED
 
-#define afbBindingV4root (zafb_root_api())
+#define afbBindingRoot (zafb_root_api())
 
 #include <afb-v4.h>
 #include <afb-apis.h>
