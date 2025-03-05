@@ -133,3 +133,36 @@ void zafb_exit(int code)
 	afb_sched_exit(1, NULL, 0, code);
 }
 
+#if WITH_ZEPHYR_LLEXT
+#include <zephyr/llext/llext.h>
+#include <zephyr/llext/buf_loader.h>
+#include <afb-apis.h>
+#if CONFIG_USERSPACE
+#include <zephyr/app_memory/mem_domain.h>
+#endif /* CONFIG_USERSPACE */
+#if CONFIG_USERSPACE
+int zafb_load_llext_binding(const char *name, struct llext **ext, const void *buf,
+                            size_t len, k_mem_domain domain)
+#else /* CONFIG_USERSPACE */
+int zafb_load_llext_binding(const char *name, struct llext **ext, const void *buf,
+                            size_t len)
+#endif /* CONFIG_USERSPACE */
+{
+	int rc;
+	struct llext_buf_loader buf_loader = LLEXT_BUF_LOADER(buf, len);
+	struct llext_loader *loader = &buf_loader.loader;
+	struct llext_load_param ldr_parm = LLEXT_LOAD_PARAM_DEFAULT;
+	struct afb_apiset *set = zafb_apiset();
+
+	rc = llext_load(loader, name, ext, &ldr_parm);
+#if CONFIG_USERSPACE
+	if (rc >= 0)
+		rc = llext_add_domain(*ext, &domain);
+	if (rc >= 0)
+		k_mem_domain_add_thread(&domain, k_current_get());
+#endif /* CONFIG_USERSPACE */
+	if (rc >= 0)
+		rc = afb_api_so_v4_add(name, *ext, set, set);
+	return rc;
+}
+#endif /* WITH_ZEPHYR_LLEXT */

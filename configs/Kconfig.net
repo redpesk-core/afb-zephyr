@@ -48,4 +48,9 @@ if AFB_RPC_NET
         default y
     config NET_HOSTNAME
         default "zefpesk"
+
+    config NET_MAX_CONN
+        default 10
+    config NET_MAX_CONTEXTS
+        default 10
 endif # AFB_RPC_NET

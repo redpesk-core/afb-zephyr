@@ -1,0 +1,26 @@
+if AFB_LLEXT_LOADER
+    config LLEXT
+        default y
+    config LLEXT_HEAP_SIZE
+        default 32
+    choice LLEXT_BINARY_TYPE
+        default LLEXT_TYPE_ELF_RELOCATABLE
+    endchoice # LLEXT_BINARY_TYPE
+    choice LLEXT_LOG_LEVEL_CHOICE
+        default LLEXT_LOG_LEVEL_WRN
+    endchoice # LLEXT_LOG_LEVEL_CHOICE
+endif # AFB_LLEXT_LOADER
+
+if AFB_LLEXT_BINDING
+    config LLEXT
+        default y
+    config LLEXT_HEAP_SIZE
+        default 32
+    choice LLEXT_BINARY_TYPE
+        default LLEXT_TYPE_ELF_RELOCATABLE
+    endchoice # LLEXT_BINARY_TYPE
+    config LLEXT_EDK_NAME
+        default "afb-sdk"
+    config APPLICATION_DEFINED_SYSCALL
+        default y
+endif # AFB_LLEXT_BINDING

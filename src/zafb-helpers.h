@@ -38,4 +38,15 @@ extern int zafb_start(void (*start)(), int maxjobs, int maxsessions, int maxthre
 /* exit the framework scheduler with the given code */
 extern void zafb_exit(int code);
 
+#if WITH_ZEPHYR_LLEXT
+#include <zephyr/llext/llext.h>
+#if CONFIG_USERSPACE
+extern int zafb_load_llext_binding(const char *name, struct llext **ext, const void *buf,
+                            size_t len, k_mem_domain domain);
+#else /* CONFIG_USERSPACE*/
+extern int zafb_load_llext_binding(const char *name, struct llext **ext, const void *buf,
+                            size_t len);
+#endif /* CONFIG_USERSPACE*/
+#endif /* WITH_ZEPHYR_LLEXT */
+
 #endif /* ZAFB_HELPERS_INCLUDED */

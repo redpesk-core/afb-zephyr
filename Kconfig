@@ -16,5 +16,20 @@ config AFB_RPC_NET
 		It allows communicating with a binding that is
 		only reachable on the network.
 
+config AFB_LLEXT_LOADER
+	bool "AFB support loading LLEXT bindings"
+	depends on AFB_ZEPHYR
+	help
+		Add support for using LLEXT to load Zephyr
+		bindings
+
+config AFB_LLEXT_BINDING
+	bool "AFB loadable binding with LLEXT"
+	depends on !AFB_ZEPHYR
+	help
+		When creating a zephyr binding loaded by LLEXT.
+
+
 rsource "configs/Kconfig.main"
 rsource "configs/Kconfig.net"
+rsource "configs/Kconfig.llext"
