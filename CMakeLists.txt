@@ -2,6 +2,9 @@
 # SPDX-License-Identifier: Apache-2.0
 
 if(CONFIG_AFB_ZEPHYR)
+	if(CONFIG_AFB_MBEDTLS)
+		include_directories(${ZEPHYR_MBEDTLS_MODULE_DIR}/include)
+	endif()
 	add_subdirectory(afb-binding)
 	add_subdirectory(rp-lib-utils)
 	add_subdirectory(afb-libafb)

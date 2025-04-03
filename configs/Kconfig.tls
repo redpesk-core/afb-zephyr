@@ -1,0 +1,49 @@
+if AFB_MBEDTLS
+
+#    config MBEDTLS_TLS_VERSION_1_3
+#        default y
+#
+#    config PSA_CRYPTO_CLIENT
+#        default y
+#
+#    config MBEDTLS_PSA_CRYPTO_C
+#        default y
+#
+#    config MBEDTLS_PSA_CRYPTO_CLIENT
+#        default y
+#
+#    config PSA_WANT_ALG_HKDF_EXTRACT
+#        default y
+#
+#    config PSA_WANT_ALG_HKDF_EXPAND
+#        default y
+#
+#    config PSA_WANT_ALG_SHA_256
+#        default y
+#
+#    config PSA_WANT_ALG_SHA_384
+#        default y
+#
+#    config MBEDTLS_ENABLE_HEAP
+#        default y
+#
+#    config MBEDTLS_HEAP_SIZE
+#        default 60000
+#
+#    config MBEDTLS_SSL_MAX_CONTENT_LEN
+#        default 2048
+#
+#    config NET_BUF_RX_COUNT
+#        default 80
+#    config NET_BUF_TX_COUNT
+#        default 80
+#    config MBEDTLS
+#        default y
+#    config MBEDTLS_BUILTIN
+#        default y
+#    config NET_SOCKETS_SOCKOPT_TLS
+#        default y
+#    config NET_SOCKETS_TLS_MAX_CONTEXTS
+#        default 6
+
+endif # AFB_MBEDTLS

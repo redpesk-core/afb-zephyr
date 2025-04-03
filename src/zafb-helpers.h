@@ -38,6 +38,12 @@ extern int zafb_start(void (*start)(), int maxjobs, int maxsessions, int maxthre
 /* exit the framework scheduler with the given code */
 extern void zafb_exit(int code);
 
+#if CONFIG_AFB_MBEDTLS
+extern int zafb_tls_add_trust_list(const void *data, size_t size);
+extern int zafb_tls_set_certificate(const void *data, size_t size);
+extern int zafb_tls_set_private_key(const void *data, size_t size);
+#endif /* CONFIG_AFB_MBEDTLS */
+
 #if WITH_ZEPHYR_LLEXT
 #include <zephyr/llext/llext.h>
 #if CONFIG_USERSPACE

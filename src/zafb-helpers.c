@@ -133,6 +133,22 @@ void zafb_exit(int code)
 	afb_sched_exit(1, NULL, 0, code);
 }
 
+#if CONFIG_AFB_MBEDTLS
+#include <tls/tls.h>
+int zafb_tls_add_trust_list(const void *data, size_t size)
+{
+	return tls_add_trust(data, size);
+}
+int zafb_tls_set_certificate(const void *data, size_t size)
+{
+	return tls_set_cert(data, size);
+}
+int zafb_tls_set_private_key(const void *data, size_t size)
+{
+	return tls_set_key(data, size);
+}
+#endif
+
 #if WITH_ZEPHYR_LLEXT
 #include <zephyr/llext/llext.h>
 #include <zephyr/llext/buf_loader.h>

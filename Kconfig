@@ -29,7 +29,15 @@ config AFB_LLEXT_BINDING
 	help
 		When creating a zephyr binding loaded by LLEXT.
 
+config AFB_MBEDTLS
+	bool "Allow use of TLS features of AFB"
+	depends on AFB_ZEPHYR
+	select MBEDTLS
+	help
+		Add support for TLS using MBEDTLS
+
 
 rsource "configs/Kconfig.main"
 rsource "configs/Kconfig.net"
 rsource "configs/Kconfig.llext"
+rsource "configs/Kconfig.tls"

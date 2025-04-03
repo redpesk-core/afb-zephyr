@@ -2,3 +2,5 @@ name: afb-zephyr
 build:
   cmake: .
   kconfig: ./Kconfig
+  depends:
+    - mbedtls
