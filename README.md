@@ -111,12 +111,15 @@ To enable `afb-zephyr` zephyr external module, please use the following
 configs in your application prj.conf file (by prefixing them with `CONFIG_`)
 or enable them through menuconfig (path: `(Top) -> Modules -> afb-zephyr`).
 
-| CONFIG Name         | Default value | Comment                                 |
-| ------------------- | ------------- | --------------------------------------- |
-| AFB\_ZEPHYR         | n             | Enables `afb-zephyr` module             |
-| AFB\_RPC\_NET       | n             | Enables `afb-zephyr` RPC over TCP/IP    |
-| AFB\_LLEXT\_LOADER  | n             | Allow the loading of a LLEXT binding    |
-| AFB\_LLEXT\_BINDING | n             | Used to create AFB LLEXT bindings & SDK |
+| CONFIG Name                 | Comment                                                                        |
+| --------------------------- | ------------------------------------------------------------------------------ |
+| AFB\_ZEPHYR                 | Enables `afb-zephyr` module                                                    |
+| AFB\_ZEPHYR\_NET            | Enables `afb-zephyr` TCP/IP capabilities                                       |
+| AFB\_ZEPHYR\_RPC\_BACKEND   | Choose which backend to use for `afb-zephyr` RPC (default: AFB_ZEPHYR_RPC_NET) |
+| AFB\_ZEPHYR\_RPC\_NET       | RPC backend: RPC over TCP/IP                                                   |
+| AFB\_ZEPHYR\_LLEXT\_LOADER  | Allow the loading of a LLEXT binding                                           |
+| AFB\_ZEPHYR\_LLEXT\_BINDING | Used to create AFB LLEXT bindings & SDK                                        |
+| AFB\_ZEPHYR\_MBEDTLS        | Allow use of TLS features of `afb-zephyr`                                      |
 
 ## Examples
 

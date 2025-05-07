@@ -1,4 +1,4 @@
-if AFB_MBEDTLS
+if AFB_ZEPHYR_MBEDTLS
     config MBEDTLS
         default y
     choice MBEDTLS_IMPLEMENTATION
@@ -16,4 +16,4 @@ if AFB_MBEDTLS
         default y
     config NET_SOCKETS_TLS_MAX_CONTEXTS
         default 6
-endif # AFB_MBEDTLS
+endif # AFB_ZEPHYR_MBEDTLS

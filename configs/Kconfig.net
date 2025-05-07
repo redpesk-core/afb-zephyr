@@ -1,4 +1,4 @@
-if AFB_RPC_NET
+if AFB_ZEPHYR_NET
     config NET_IPV6
         default n
     config NET_IPV4
@@ -53,4 +53,4 @@ if AFB_RPC_NET
         default 10
     config NET_MAX_CONTEXTS
         default 10
-endif # AFB_RPC_NET
+endif # AFB_ZEPHYR_NET

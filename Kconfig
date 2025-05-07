@@ -7,32 +7,43 @@ config AFB_ZEPHYR
 	help
 	  This option enables the Application Framework Binder library module
 
-config AFB_RPC_NET
-	bool "AFB RPC over TCP/IP capabilities"
+config AFB_ZEPHYR_NET
+	bool "AFB net capabilities"
 	depends on AFB_ZEPHYR
 	select NETWORKING
+	help
+	  This option enables AFB zephyr module net capabilities
+
+choice AFB_ZEPHYR_RPC_BACKEND
+	prompt "AFB RPC communication"
+    default AFB_ZEPHYR_RPC_NET
+	depends on AFB_ZEPHYR
+config AFB_ZEPHYR_RPC_NET
+	bool "AFB RPC over TCP/IP capabilities"
+	depends on AFB_ZEPHYR_NET
 	help
 		This option enable AFB Binder RPC over TCP/IP.
 		It allows communicating with a binding that is
 		only reachable on the network.
+endchoice
 
-config AFB_LLEXT_LOADER
+config AFB_ZEPHYR_LLEXT_LOADER
 	bool "AFB support loading LLEXT bindings"
 	depends on AFB_ZEPHYR
 	help
 		Add support for using LLEXT to load Zephyr
 		bindings
 
-config AFB_LLEXT_BINDING
+config AFB_ZEPHYR_LLEXT_BINDING
 	bool "AFB loadable binding with LLEXT"
 	depends on !AFB_ZEPHYR
 	help
 		When creating a zephyr binding loaded by LLEXT.
 
-config AFB_MBEDTLS
+config AFB_ZEPHYR_MBEDTLS
 	bool "Allow use of TLS features of AFB"
 	depends on AFB_ZEPHYR
-	depends on AFB_RPC_NET
+	depends on AFB_ZEPHYR_NET
 	help
 		Add support for TLS using MBEDTLS
 

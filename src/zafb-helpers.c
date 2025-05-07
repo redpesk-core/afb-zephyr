@@ -133,7 +133,7 @@ void zafb_exit(int code)
 	afb_sched_exit(1, NULL, 0, code);
 }
 
-#if CONFIG_AFB_MBEDTLS
+#if CONFIG_AFB_ZEPHYR_MBEDTLS
 #include <tls/tls.h>
 int zafb_tls_add_trust_list(const void *data, size_t size)
 {
