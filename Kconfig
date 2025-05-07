@@ -32,7 +32,7 @@ config AFB_LLEXT_BINDING
 config AFB_MBEDTLS
 	bool "Allow use of TLS features of AFB"
 	depends on AFB_ZEPHYR
-	select MBEDTLS
+	depends on AFB_RPC_NET
 	help
 		Add support for TLS using MBEDTLS
 
