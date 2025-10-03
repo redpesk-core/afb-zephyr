@@ -21,6 +21,7 @@ struct afb_apiset *zafb_apiset()
 {
 	if (__zafb_all_apis__ == NULL) {
 		__zafb_all_apis__ = afb_apiset_create(NULL, 0);
+		afb_global_api_init(__zafb_all_apis__);
 	}
 	return __zafb_all_apis__;
 }	
@@ -94,7 +95,7 @@ afb_api_t zafb_root_api()
 static void __start__(int signum, void *arg)
 {
 	void (*start)() = arg;
-	zafb_root_api();
+	zafb_apiset();
 	start();
 	zafb_start_all_api();
 }
