@@ -32,8 +32,10 @@ if AFB_ZEPHYR_MBEDTLS
     config MBEDTLS_CIPHER_MODE_CBC_ENABLED
         default n
     config MBEDTLS_SSL_TLS1_3_KEY_EXCHANGE_MODE_EPHEMERAL_ENABLED
+        bool
         default y
     config MBEDTLS_TLS_VERSION_1_3
+        bool
         default y
     config MBEDTLS_PSA_CRYPTO_C
         default y
