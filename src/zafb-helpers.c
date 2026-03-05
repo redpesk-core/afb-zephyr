@@ -122,8 +122,8 @@ int zafb_start(void (*start)(), int maxjobs, int maxsessions, int maxthreads)
 
 	/* start AFB scheduler */
 	return afb_sched_start(
-		1 /* started count of threads */,
 		maxthreads /* maximum count of threads */,
+		1 /* started count of threads */,
 		maxjobs /* maximum count of jobs */,
 		__start__ /* start callback */,
 		start /* argument to the callback */);
